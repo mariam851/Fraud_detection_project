@@ -21,11 +21,6 @@ You can generate it by training the model locally:
 ```bash
 python train_model.py
 
-This will create the folder models and save the trained pipeline.
-
-
----
-
 ```python
 # train_model.py
 from fraud_app import train_pipeline
