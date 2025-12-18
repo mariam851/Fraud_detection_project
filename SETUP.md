@@ -26,9 +26,6 @@ This will create the folder models and save the trained pipeline.
 
 ---
 
-### 2️⃣ إضافة سكريبت لتدريب النموذج
-- أنشئي ملف `train_model.py` في المشروع:
-
 ```python
 # train_model.py
 from fraud_app import train_pipeline
