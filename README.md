@@ -1,135 +1,119 @@
-# Fraud Detection in Financial Transactions Using Machine Learning
+# Interpretable Machine Learning for Fraud Detection in Large-Scale Financial Transactions
+
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.8%2B-green.svg)
+![Research](https://img.shields.io/badge/Focus-Academic%20Research-red.svg)
 
 ## Abstract
-This project presents a research-oriented machine learning system for detecting fraudulent financial transactions.  
-
-The system emphasizes **behavioral feature engineering**, **probabilistic risk estimation**, and **post-hoc analytical evaluation**, supported by an **interactive experimental dashboard**.  
-
-It is designed as an academic research artifact suitable for MSc applications and further extension into advanced research.
+This project presents a research-oriented and interpretable machine learning framework for detecting fraudulent financial transactions in large-scale banking data. Using a dataset of approximately **18 million transactions**, the system emphasizes behavioral feature engineering, probabilistic risk estimation, and post-hoc analytical evaluation. An interactive experimental dashboard is provided to support controlled transaction testing, qualitative error analysis, and interpretability-driven inspection. This project is designed as an academic research artifact, suitable for MSc applications and future peer-reviewed publication.
 
 ---
 
-## Research Motivation
-Fraud detection in financial systems presents several research challenges:
+## 1. Research Motivation
+Fraud detection in financial systems presents multiple real-world and research challenges:
+* **Extreme class imbalance:** Fraud cases represent less than 0.2% of the data.
+* **High cost of false negatives:** Leading to direct financial loss.
+* **Regulatory demand for interpretability:** Modern systems require explainable decision-making.
 
-- Extreme class imbalance (fraud cases < 0.2%)
-- High cost of false negatives
-- Requirement for interpretability in decision-making systems
-
-This project focuses on:
-
-- Modeling **transactional behavior**, not user identity
-- Combining **statistical learning** with **domain-driven indicators**
-- Providing **transparent and analyzable model outputs**
+**This work focuses on:**
+* Modeling transactional behavior rather than customer identity.
+* Combining statistical learning with domain-driven financial indicators.
+* Producing transparent risk outputs instead of opaque binary decisions.
 
 ---
 
-## Dataset Description
-- **Dataset:** Financial Transactions Dataset (AIML)  
-- **Fraud ratio:** ~0.17%  
-- **Transaction types:** TRANSFER, CASH_OUT, PAYMENT, DEBIT, CASH_IN  
-- **Features:** Sender and receiver balances before and after the transaction, enabling **balance-based behavioral analysis**  
+## 2. Dataset Description
+* **Source:** Financial Transactions Dataset (AIML – Synthetic & Anonymized).
+* **Scale:** ~18,000,000 transactions.
+* **Fraud Ratio:** ~0.17%.
+* **Transaction Types:** `TRANSFER`, `CASH_OUT`, `PAYMENT`, `DEBIT`, `CASH_IN`.
+* **Ethical Note:** Contains no Personal Identifiable Information (PII).
 
 ---
 
-## Interactive Transaction Evaluation
+## 3. System Overview & Interactive Evaluation
 
-### Transaction Input Interface
+### 3.1 Transaction Input Interface
+The system provides an interactive interface that allows manual transaction simulation, enabling controlled experimentation with transaction attributes.
+
 ![Transaction Input](photos/1.png)
 
-The system provides a structured interface for manual transaction testing, allowing controlled experimentation with transaction attributes.
+### 3.2 Prediction Output & Risk Interpretation
+For each evaluated transaction, the system outputs a Fraud Probability, Aggregated Risk Score, and Behavioral Alerts.
 
-### Prediction Output & Risk Interpretation
-![Prediction Result 1](photos/2.png)  
-![Prediction Result 2](photos/3.png)
-
-For each transaction, the model outputs:
-
-- **Fraud probability**
-- **Aggregated fraud risk score**
-- **Rule-based behavioral alerts**
+![Risk Interpretation](photos/2.png)
 
 ---
 
-## Fraud Probability Distribution
-![Predicted Fraud Probability Distribution](photos/4.png)
+## 4. Exploratory Data & Model Behavior Analysis
 
-Distribution of predicted fraud probabilities highlights model behavior under extreme class imbalance.
+### 4.1 Fraud Probability Distribution
+The distribution highlights how the model allocates probability mass under extreme class imbalance.
 
----
+![Probability Distribution](photos/3.png)
 
-## Transaction Amount vs Fraud Label
-![Transaction Amount Safe vs Fraud (Log Scale)](photos/5.png)
+### 4.2 Transaction Amount vs Fraud Label
+A log-scaled comparison demonstrates separation trends between legitimate and fraudulent transactions.
 
-Log-scaled comparison between transaction amount and fraud labels shows separation between legitimate and fraudulent transactions.
+![Amount vs Label](photos/4.png)
 
----
+### 4.3 Transaction Type Analysis
+Analysis of fraud incidence across different operation types (notably higher in `TRANSFER` and `CASH_OUT`).
 
-## Transaction Type Analysis
+![Transaction Type Distribution](photos/5.png)
+![Fraud Rate by Type](photos/6.png)
 
-### Transaction Type Distribution
-![Transaction Type Distribution](photos/6.png)
+### 4.4 Feature Correlation Analysis
+Highlights relationships between transaction attributes and engineered behavioral features.
 
-### Fraud Rate by Transaction Type
-![Fraud Rate by Transaction Type](photos/7.png)
-
-Fraud incidence varies by transaction type, with **TRANSFER** and **CASH_OUT** showing higher fraud rates.
-
----
-
-## Feature Correlation Analysis
-![Correlation Heatmap for Numeric Features](photos/8.png)
-
-Correlation heatmap highlights relationships between transaction attributes and engineered balance-based variables.
+![Correlation Analysis](photos/7.png)
 
 ---
 
-## Model Behavior Analysis
+## 5. Model Behavior & Error Analysis
 
-### Amount vs Predicted Fraud Probability
-![Amount vs Predicted Fraud Probability](photos/9.png)
+### 5.1 Amount vs Predicted Fraud Probability
+This visualization reveals the concentration of predicted risk in specific transaction regimes.
 
-Scatter plot visualizing how predicted fraud probability evolves with transaction amount, revealing risk concentration patterns.
+![Amount vs Prediction](photos/8.png)
 
-### Top Suspicious Transactions
-![Top Suspicious Transactions](photos/10.png)
+### 5.2 Top Suspicious Transactions
+A ranked view of high-risk transactions supports manual audit and qualitative error analysis.
 
-Table presenting the top suspicious transactions ranked by predicted fraud probability, supporting manual audit and error analysis.
-
----
-
-## Methodology Summary
-- **Model:** Logistic Regression (interpretable baseline)  
-- **Preprocessing:**  
-  - Standardization of numeric features  
-  - One-hot encoding for categorical variables  
-- **Feature Engineering:**  
-  - Balance differentials  
-  - Amount-to-balance ratios  
-  - Behavioral risk flags  
-
-This choice prioritizes **interpretability and research clarity** over black-box performance.
+![Top Suspicious](photos/9.png)
 
 ---
 
-## Research Value
-This project demonstrates:
+## 6. Methodology Summary
+* **Model:** Logistic Regression (Interpretable baseline).
+* **Preprocessing:** Standardization and One-hot encoding.
+* **Feature Engineering:**
+    * Balance differentials.
+    * Amount-to-balance ratios.
+    * Behavioral risk flags.
 
-- Applied machine learning methodology
-- Handling of highly imbalanced datasets
-- Behavioral feature engineering
-- Reproducible experimental evaluation
+![Methodology Workflow](photos/10.png)
 
-It is suitable as:
+---
 
-- MSc research portfolio material
-- Foundation for academic publication
-- Basis for advanced fraud detection research
+## 7. Research Value
+This project demonstrates applied machine learning in a realistic financial setting, focusing on:
+* Handling highly imbalanced datasets.
+* Behavioral feature engineering grounded in domain logic.
+* Reproducible and inspectable experimental analysis.
+
+**Suitable As:** MSc research portfolio material or a foundation for peer-reviewed research.
+
+---
+
+## 8. Limitations & Future Work
+* **Temporal modeling:** Using sequence-based approaches (LSTM / Transformers).
+* **Explainable Ensembles:** Integrating SHAP or LIME with Gradient Boosting.
+* **Real-time deployment:** Implementing streaming inference pipelines.
 
 ---
 
 ## Author
-**Mariam Zakaria**  
-MSc Applicant — Machine Learning & Data Science  
-**Research Interests:** Fraud Detection, Interpretable ML, Applied AI Systems
-
+**Mariam Zakaria**
+*MSc Applicant — Machine Learning & Data Science*
+*Research Interests: Fraud Detection, Interpretable Machine Learning, Applied AI Systems.*
