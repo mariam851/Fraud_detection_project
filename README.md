@@ -1,5 +1,7 @@
 # Interpretable Machine Learning for Fraud Detection in Large-Scale Financial Transactions
 
+> **Note:** This repository accompanies the research paper submitted to **arXiv**.
+
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-green.svg)
 ![Research](https://img.shields.io/badge/Focus-Academic%20Research-red.svg)
@@ -117,3 +119,4 @@ This project demonstrates applied machine learning in a realistic financial sett
 **Mariam Zakaria**
 *MSc Applicant — Machine Learning & Data Science*
 *Research Interests: Fraud Detection, Interpretable Machine Learning, Applied AI Systems.*
+
